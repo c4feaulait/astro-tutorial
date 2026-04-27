@@ -1,4 +1,7 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+
 const pageTitle = "私について";
 
 const identity = {
@@ -12,7 +15,11 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "ドキュメン�
 
 const happy = true;
 const finished = true;
-const goal = 2;
+const goal = 3;
+
+const skillColor = "crimson";
+const fontWeight = "700"
+const textCase = "uppercase"
 ---
 
 <html lang="ja">
@@ -24,11 +31,20 @@ const goal = 2;
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+              color: purple;
+              font-size: 4rem;
+            }
+            .skill {
+              color: var(--skillColor);
+              font-weight: var(--fontWeight);
+              text-transform: var(--textCase);
+            }
+          </style>
 	</head>
 	<body>
-        <a href="/">ホーム</a>
-        <a href="/about/">概要</a>
-        <a href="/blog/">ブログ</a>
+        <Navigation />
 
         <h1>{pageTitle}</h1>
         <h2>... そして私の新しいAstroサイトについて！</h2>
@@ -47,7 +63,7 @@ const goal = 2;
 </ul>
 <p>私のスキルは以下の通りです。</p>
 <ul>
-  {skills.map((skill) => <li>{skill}</li>)}
+  {skills.map((skill) => <li class="skill">{skill}</li>)}
 </ul>
 
 {happy && <p>I am happy to be learning Astro! Astroを学べて幸せです！</p>}
