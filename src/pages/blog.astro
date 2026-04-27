@@ -1,5 +1,6 @@
 ---
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const pageTitle = "私のAstro学習ブログ"
@@ -15,7 +16,6 @@ const pageTitle = "私のAstro学習ブログ"
 		<title>{pageTitle}</title>
 	</head>
 	<body>
-        <body>
             <Navigation />
 
             <h1>{pageTitle}</h1>
@@ -28,6 +28,7 @@ const pageTitle = "私のAstro学習ブログ"
             <ul>
                 <li><a href="/posts/post-3/">記事3</a></li>
             </ul>
-        </body>
+        
+        <Footer />
     </body>
 </html>
